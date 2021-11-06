@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.brest.egbd.domain">
+
+    <class name="Applicant" table="APPLICANT">
+        <id name="applicantId" column="applicantId">
+            <generator class="native"/>
+        </id>
+
+        <property name="applicantName" column="applicantName"/>
+        <property name="applicantPatronymic" column="applicantPatronymic"/>
+        <property name="applicantSurname" column="applicantSurname"/>
+        <property name="applicantDateOfBirth" column="applicantDateOfBirth"/>
+        <property name="applicantPlaceOfBirth" column="applicantPlaceOfBirth"/>
+        <property name="applicantPlaceOfResidence" column="applicantPlaceOfResidence"/>
+        <property name="applicantIdentificationNumber" column="applicantIdentificationNumber"/>
+
+        <set name="statements" table="STATEMENT" cascade="all">
+            <key column="applicantId"/>
+            <one-to-many class="Statement"/>
+        </set>
+
+    </class>
+
+</hibernate-mapping>

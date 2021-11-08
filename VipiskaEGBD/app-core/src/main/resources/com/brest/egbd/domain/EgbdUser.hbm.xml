@@ -1,0 +1,19 @@
+<?xml version='1.0'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.brest.egbd.domain">
+
+    <class name="EgbdUser" table="EGBDUSER">
+        <id name="egbdUserId" type="long" column="egbdUserId">
+            <generator class="native"/>
+        </id>
+        <property name="egbdUserLogin" column="egbdUserLogin"/>
+        <property name="egbdUserPassword" type="date" column="egbdUserPassword"/>
+        <property name="egbdUserFIO" column="egbdUserFIO"/>
+        <property name="egbdUserPhoneNumber" column="egbdUserPhoneNumber"/>
+
+    </class>
+
+</hibernate-mapping>

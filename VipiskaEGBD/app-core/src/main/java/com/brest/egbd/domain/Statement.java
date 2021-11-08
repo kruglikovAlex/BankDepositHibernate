@@ -3,9 +3,6 @@ package com.brest.egbd.domain;
 import java.util.Date;
 
 public class Statement {
-
-    public static enum StatementRequestedInformation {Criminal, Administrative, CriminalAndAdministrative};
-
     private Long statementId;
     private String statementNumber; //номер заявления
     private Date statementDateOfSubmission; //дата подачи заявления

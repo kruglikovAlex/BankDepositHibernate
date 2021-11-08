@@ -1,0 +1,54 @@
+<?xml version='1.0'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.brest.egbd.domain">
+
+    <class name="Statement" table="STATEMENT">
+        <id name="statementId" column="statementId">
+            <generator class="native"/>
+        </id>
+
+        <property name="statementNumber" column="statementNumber"/>
+        <property name="statementDateOfSubmission" column="statementDateOfSubmission"/>
+        <property name="statementDateRegistration" column="statementDateRegistration"/>
+        <property name="statementDateExecution" column="statementDateExecution"/>
+        <property name="statementDateReceipt" column="statementDateReceipt"/>
+        <property name="statementNumberBlank" column="statementNumberBlank"/>
+
+        <many-to-one name = "statementExecutor" column = "statementExecutor"
+                     class="EgbdUser" not-null="true"/>
+
+        <property name="statementStory" column="statementStory"/>
+        <property name="statementCriminalRecord" column="statementCriminalRecord"/>
+        <property name="statementAdministrativeInquiry" column="statementAdministrativeInquiry"/>
+        <property name="statementNomenclatureVolume" column="statementNomenclatureVolume"/>
+        <property name="statementOutgoingNumber" column="statementOutgoingNumber"/>
+
+        <many-to-one name = "statementROVDin" column = "statementROVDin"
+                     class="EgbdROVD" not-null="true"/>
+
+        <many-to-one name = "statementROVDout" column = "statementROVDout"
+                     class="EgbdROVD" not-null="true"/>
+
+        <many-to-one name = "statementPayment" column = "statementPayment"
+                     class="EgbdPayment" not-null="true"/>
+
+        <property name="gender" column="GENDER">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">net.codejava.hibernate.Gender</param>
+            </type>
+        </property>
+
+        <property name="statementRequestedInformation" column="statementRequestedInformation" update="true" insert="true" index="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.brest.egbd.domain.StatementRequestedInformation</param>
+                <param name="type">12</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+
+    </class>
+
+</hibernate-mapping>

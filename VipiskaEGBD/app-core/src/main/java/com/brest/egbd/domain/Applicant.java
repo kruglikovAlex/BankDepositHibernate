@@ -128,7 +128,7 @@ public class Applicant {
                 ", applicantName='" + applicantName + '\'' +
                 ", applicantPatronymic='" + applicantPatronymic + '\'' +
                 ", applicantSurname='" + applicantSurname + '\'' +
-                ", applicantDateOfBirth=" + dateOfBirth + '\'' +
+                ", applicantDateOfBirth='" + dateOfBirth + '\'' +
                 ", applicantPlaceOfBirth='" + applicantPlaceOfBirth + '\'' +
                 ", applicantPlaceOfResidence='" + applicantPlaceOfResidence + '\'' +
                 ", applicantIdentificationNumber='" + applicantIdentificationNumber + '\'' +

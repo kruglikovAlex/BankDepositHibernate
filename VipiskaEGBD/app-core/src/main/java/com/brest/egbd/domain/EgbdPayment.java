@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class EgbdPayment {
     private Long egbdPaymentId;
-    private Float egbdPaymentSumma;
+    private Double egbdPaymentSumma;
     private Date egbdPaymentDate;
 
     public EgbdPayment() {}
 
-    public EgbdPayment(Long egbdPaymentId, Float egbdPaymentSumma, Date egbdPaymentDate) {
+    public EgbdPayment(Long egbdPaymentId, Double egbdPaymentSumma, Date egbdPaymentDate) {
         this.egbdPaymentId = egbdPaymentId;
         this.egbdPaymentSumma = egbdPaymentSumma;
         this.egbdPaymentDate = egbdPaymentDate;
@@ -23,11 +23,11 @@ public class EgbdPayment {
         this.egbdPaymentId = egbdPaymentId;
     }
 
-    public Float getEgbdPaymentSumma() {
+    public Double getEgbdPaymentSumma() {
         return egbdPaymentSumma;
     }
 
-    public void setEgbdPaymentSumma(Float egbdPaymentSumma) {
+    public void setEgbdPaymentSumma(Double egbdPaymentSumma) {
         this.egbdPaymentSumma = egbdPaymentSumma;
     }
 
@@ -45,6 +45,6 @@ public class EgbdPayment {
                 "egbdPaymentId=" + egbdPaymentId +
                 ", egbdPaymentSumma=" + egbdPaymentSumma +
                 ", egbdPaymentDate=" + egbdPaymentDate +
-                '}';
+                "}";
     }
 }

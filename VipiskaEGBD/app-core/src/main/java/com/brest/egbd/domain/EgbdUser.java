@@ -5,8 +5,9 @@ package com.brest.egbd.domain;
 //import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.Size;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Min;
+//import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotEmpty;
 
 public class EgbdUser {
     @NotNull
@@ -14,19 +15,17 @@ public class EgbdUser {
 
     @NotNull
     @Size(min = 2, max = 14)
-    //@NotEmpty
     private String egbdUserLogin;
 
     @NotNull
     @Size(min = 3, max = 14)
-    //@NotEmpty
     private String egbdUserPassword;
 
     @NotNull
-    @Min(3)
-    //@NotEmpty
+    @Size(min = 3, max = 25)
     private String egbdUserFIO;
 
+    @NotEmpty
     private String egbdUserPhoneNumber;
 
     public EgbdUser() {
@@ -87,7 +86,7 @@ public class EgbdUser {
     @Override
     public String toString() {
         return "EgbdUser{" +
-                "egbdUserId=" + egbdUserId +
+                "egbdUserId='" + egbdUserId + '\'' +
                 ", egbdUserLogin='" + egbdUserLogin + '\'' +
                 ", egbdUserPassword='" + egbdUserPassword + '\'' +
                 ", egbdUserFIO='" + egbdUserFIO + '\'' +

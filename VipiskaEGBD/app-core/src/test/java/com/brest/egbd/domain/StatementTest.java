@@ -52,62 +52,150 @@ public class StatementTest {
     }
 
     @Test
-    public void getStatementDateRegistration() {
+    public void testGetStatementDateRegistration() throws ParseException{
+        LOGGER.debug("testGetStatementDateRegistration({})", "2021-11-25");
+        statement.setStatementDateRegistration(dateFormat.parse("2021-11-25"));
+
+        assertEquals("2021-11-25", dateFormat.format(statement.getStatementDateRegistration()));
+        assertEquals(dateFormat.parse("2021-11-25"), statement.getStatementDateRegistration());
+        assertTrue(statement.getStatementDateRegistration().compareTo(dateFormat.parse("2021-11-25"))==0);
     }
 
     @Test
-    public void getStatementDateExecution() {
+    public void testGetStatementDateExecution() throws ParseException{
+        LOGGER.debug("testGetStatementDateExecution({})", "2021-11-25");
+        statement.setStatementDateExecution(dateFormat.parse("2021-11-25"));
+
+        assertEquals("2021-11-25", dateFormat.format(statement.getStatementDateExecution()));
+        assertEquals(dateFormat.parse("2021-11-25"), statement.getStatementDateExecution());
+        assertTrue(statement.getStatementDateExecution().compareTo(dateFormat.parse("2021-11-25"))==0);
     }
 
     @Test
-    public void getStatementDateReceipt() {
+    public void testGetStatementDateReceipt() throws ParseException{
+        LOGGER.debug("testGetStatementDateReceipt({})", "2021-11-25");
+        statement.setStatementDateReceipt(dateFormat.parse("2021-11-25"));
+
+        assertEquals("2021-11-25", dateFormat.format(statement.getStatementDateReceipt()));
+        assertEquals(dateFormat.parse("2021-11-25"), statement.getStatementDateReceipt());
+        assertTrue(statement.getStatementDateReceipt().compareTo(dateFormat.parse("2021-11-25"))==0);
     }
 
     @Test
-    public void getStatementNumberBlank() {
+    public void testGetStatementNumberBlank() {
+        String numberBlank = "IC7/0000001";
+        LOGGER.debug("testGetStatementNumberBlank({})", numberBlank);
+        statement.setStatementNumberBlank(numberBlank);
+
+        assertEquals(numberBlank, statement.getStatementNumberBlank());
     }
 
     @Test
-    public void getStatementExecutor() {
+    public void testGetStatementExecutor() {
+        EgbdUser egbdUser = new EgbdUser(1L, "KMV", "KMV", "Kruglikova", "+375(29)7777777");
+        LOGGER.debug("testGetStatementExecutor({})", egbdUser);
+        statement.setStatementExecutor(egbdUser);
+
+        assertEquals(egbdUser, statement.getStatementExecutor());
     }
 
     @Test
-    public void getStatementStory() {
+    public void testGetStatementStory() {
+        LOGGER.debug("testGetStatementStory({})", "qweasdzxc");
+        statement.setStatementStory("qweasdzxc");
+
+        assertEquals("qweasdzxc", statement.getStatementStory());
     }
 
     @Test
-    public void getStatementCriminalRecord() {
+    public void testGetStatementCriminalRecord() {
+        LOGGER.debug("testGetStatementCriminalRecord({}) ", true);
+        statement.setStatementCriminalRecord(true);
+
+        assertEquals(true, statement.getStatementCriminalRecord());
+
+        LOGGER.debug("testGetStatementCriminalRecord({}) ", false);
+        statement.setStatementCriminalRecord(false);
+
+        assertEquals(false, statement.getStatementCriminalRecord());
     }
 
     @Test
-    public void getStatementAdministrativeInquiry() {
+    public void testGetStatementAdministrativeInquiry() {
+        LOGGER.debug("testGetStatementAdministrativeInquiry({}) ", true);
+        statement.setStatementAdministrativeInquiry(true);
+
+        assertEquals(true, statement.getStatementAdministrativeInquiry());
+
+        LOGGER.debug("testGetStatementAdministrativeInquiry({}) ", false);
+        statement.setStatementAdministrativeInquiry(false);
+
+        assertEquals(false, statement.getStatementAdministrativeInquiry());
+
     }
 
     @Test
-    public void getStatementNomenclatureVolume() {
+    public void testGetStatementNomenclatureVolume() {
+        String number = "T1/1234";
+        LOGGER.debug("testGetStatementNomenclatureVolume({})", number);
+        statement.setStatementNomenclatureVolume(number);
+
+        assertEquals(number, statement.getStatementNomenclatureVolume());
     }
 
     @Test
-    public void getStatementOutgoingNumber() {
+    public void testGetStatementOutgoingNumber() {
+        String number = "51/20/I-1";
+        LOGGER.debug("testGetStatementOutgoingNumber({})", number);
+        statement.setStatementOutgoingNumber(number);
+
+        assertEquals(number, statement.getStatementOutgoingNumber());
     }
 
     @Test
-    public void getStatementROVDin() {
+    public void testGetStatementROVDin() {
+        EgbdROVD rovd = new EgbdROVD(1L, "Leninskiy ROVD");
+        LOGGER.debug("testGetStatementROVDin({})", rovd);
+        statement.setStatementROVDin(rovd);
+
+        assertEquals(rovd, statement.getStatementROVDin());
     }
 
     @Test
-    public void getStatementROVDout() {
+    public void testGetStatementROVDout() {
+        EgbdROVD rovd = new EgbdROVD(1L, "Leninskiy ROVD");
+        LOGGER.debug("testGetStatementROVDout({})", rovd);
+        statement.setStatementROVDout(rovd);
+
+        assertEquals(rovd, statement.getStatementROVDout());
     }
 
     @Test
-    public void getStatementPayment() {
+    public void testGetStatementPayment() throws ParseException{
+        EgbdPayment payment = new EgbdPayment(1L, 10.5, dateFormat.parse("2021-11-25"));
+        LOGGER.debug("testGetStatementPayment({})", payment);
+        statement.setStatementPayment(payment);
+
+        assertEquals(payment, statement.getStatementPayment());
     }
 
     @Test
-    public void getStatementRequestedInformation() {
+    public void testGetStatementRequestedInformation() {
+        LOGGER.debug("testGetStatementRequestedInformation({})",StatementRequestedInformation.Criminal);
+        statement.setStatementRequestedInformation(StatementRequestedInformation.Criminal);
+
+        assertEquals(StatementRequestedInformation.Criminal, statement.getStatementRequestedInformation());
     }
 
     @Test
     public void testToString() {
+        LOGGER.debug("testToString({})",statement);
+
+        assertEquals("Statement{statementId=null, statementNumber='null', statementDateOfSubmission=null, "+
+                "statementDateRegistration=null, statementDateExecution=null, statementDateReceipt=null, "+
+                "statementNumberBlank='null', statementExecutor=null, statementStory='null', "+
+                "statementCriminalRecord=null, statementAdministrativeInquiry=null, "+
+                "statementNomenclatureVolume='null', statementOutgoingNumber='null', statementROVDin=null, "+
+                "statementROVDout=null, statementPayment=null, statementRequestedInformation=null}", statement.toString());
     }
 }
